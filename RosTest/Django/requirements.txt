@@ -1,0 +1,8 @@
+django
+gunicorn
+catboost==1.2.7
+pandas==2.2.2
+numpy==1.26.4
+torch==2.4.0
+transformers==4.45.1
+nltk==3.9.1

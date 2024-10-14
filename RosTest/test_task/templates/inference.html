@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Inference</title>
+</head>
+<body>
+    <h1>Model Inference</h1>
+    
+    <form method="POST">
+        {% csrf_token %}
+        <label for="input_data">Enter input data:</label><br>
+        <input type="text" id="input_data" name="input_data" required><br><br>
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if input is not None %}
+        Input data:
+        {{ input }}
+    {% endif %}
+
+    {% if result is not None %}
+        <h2>Inference Result: {{ result }}</h2>
+    {% endif %}
+</body>
+</html>

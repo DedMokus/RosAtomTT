@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+
+  web:
+    build: ./Django/
+    command: gunicorn test_task.wsgi:application --bind 0.0.0.0:8080
+    volumes:
+      - .:/app
+    ports:
+      - "8080:8080"
+
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+    ports:
+      - "80:80"
+    depends_on:
+      - web
+
