@@ -23,5 +23,9 @@
     {% if result is not None %}
         <h2>Inference Result: {{ result }}</h2>
     {% endif %}
+
+    {% if isPositive is not None %}
+        <h2>Review mood: {{ isPositive }}</h2>
+    {% endif %}
 </body>
 </html>

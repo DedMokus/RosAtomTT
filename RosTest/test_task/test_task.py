@@ -66,20 +66,28 @@ class Test_task():
 
         pred = round(pred)
 
-        return pred
+        return pred, pos, neg
 
 
     @classmethod
     def infer_view(self, request):
         print(request)
         result = None
+        is_positive = None
         if request.method == 'POST':
 
             input_data = request.POST.get('input_data')
 
-            result = self.inference(input_data)
+            result, pos, neg = self.inference(input_data)
 
-            return render(request, 'inference.html', {'result': result, "input": input_data})
+            if (pos):
+                is_positive = 'Positive'
+            elif (neg):
+                is_positive = 'Negative'
+            else:
+                is_positive = 'Neutral'
+
+            return render(request, 'inference.html', {'result': result, "input": input_data, 'isPositive': is_positive})
         else:
             return render(request, 'inference.html', {'result': None})
 
