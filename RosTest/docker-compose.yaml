@@ -9,7 +9,7 @@ services:
       - .:/app
     ports:
       - "8080:8080"
-    env:
+    environment:
       - ALLOWED_HOSTS=testtask-dedmokus.tw1.ru
 
   nginx:
