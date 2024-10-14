@@ -9,6 +9,8 @@ services:
       - .:/app
     ports:
       - "8080:8080"
+    env:
+      - ALLOWED_HOSTS=testtask-dedmokus.tw1.ru
 
   nginx:
     image: nginx:latest
